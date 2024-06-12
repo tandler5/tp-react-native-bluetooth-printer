@@ -182,11 +182,8 @@ implements BluetoothServiceStateObserver{
     }
 
   @ReactMethod
-    public void printCustomText(final ReadableMap options, final String string, final Promise promise) {
+    public void printCustomText(final String string, final Promise promise) {
       TscCommand tsc = new TscCommand();
-      int width = options.getInt("width");
-      int height = options.getInt("height");
-      tsc.addSize(width,height);
       tsc.addCustomText(string);
       Vector<Byte> bytes = tsc.getCommand();
         byte[] tosend = new byte[bytes.size()];
