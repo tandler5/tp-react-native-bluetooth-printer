@@ -181,6 +181,21 @@ implements BluetoothServiceStateObserver{
         }
     }
 
+  @ReactMethod
+    public void printCustomText(final String string, final Promise promise) {
+      tsc.addCustomText(string);
+      Vector<Byte> bytes = tsc.getCommand();
+        byte[] tosend = new byte[bytes.size()];
+        for(int i=0;i<bytes.size();i++){
+            tosend[i]= bytes.get(i);
+        }
+        if(sendDataByte(tosend)){
+            promise.resolve(null);
+        }else{
+            promise.reject("COMMAND_SEND_ERROR");
+        }
+    }
+
     private TscCommand.BARCODETYPE findBarcodeType(String type) {
         TscCommand.BARCODETYPE barcodeType = TscCommand.BARCODETYPE.CODE128;
         for (TscCommand.BARCODETYPE t : TscCommand.BARCODETYPE.values()) {
