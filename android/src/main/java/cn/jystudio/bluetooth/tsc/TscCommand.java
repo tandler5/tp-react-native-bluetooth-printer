@@ -521,5 +521,11 @@ public class TscCommand {
         addStrToCommand(str);
     }
 
+     public void addCustomText(String text) {
+        String str = new String();
+        str = text;
+        addStrToCommand(str);
+    }
+
 
 }
