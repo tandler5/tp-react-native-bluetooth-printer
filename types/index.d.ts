@@ -271,6 +271,7 @@ declare module "tp-react-native-bluetooth-printer" {
       options: PrintLabelOptions
     ): void | string | PromiseLike<void> | PromiseLike<string>;
       static printCustomText(
+      options: PrintLabelOptions,
       text: string
     ): void | string | PromiseLike<void> | PromiseLike<string>;
   }
