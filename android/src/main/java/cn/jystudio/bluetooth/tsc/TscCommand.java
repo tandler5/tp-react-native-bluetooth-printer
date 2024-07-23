@@ -232,7 +232,7 @@ public class TscCommand {
         byte[] bs = null;
         if (!str.equals("")) {
             try {
-                bs = str.getBytes("UTF-8");
+                bs = str.getBytes("CP852");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -522,14 +522,9 @@ public class TscCommand {
     }
 
      public void addCustomText(String text) {
-        try {
-            byte[] bytes = text.getBytes("UTF-8");
-            String str = new String(bytes, "UTF-8");
-            addStrToCommand(str);
-        } catch (UnsupportedEncodingException e) {
-            // Handle the exception, e.g., log it or rethrow it as a runtime exception
-            e.printStackTrace();
-        }
+        String str = new String();
+        str = text;
+        addStrToCommand(str);
     }
 
 
