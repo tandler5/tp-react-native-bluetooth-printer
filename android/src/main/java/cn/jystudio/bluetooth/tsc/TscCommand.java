@@ -523,7 +523,6 @@ public class TscCommand {
 
      public void addCustomText(String text) {
         String str = new String(text, "UTF-8");
-        str = text;
         addStrToCommand(str);
     }
 
