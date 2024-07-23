@@ -522,9 +522,14 @@ public class TscCommand {
     }
 
      public void addCustomText(String text) {
-        byte[] bytes = text.getBytes("UTF-8");
-        String str = new String(bytes, "UTF-8");
-        addStrToCommand(str);
+        try {
+            byte[] bytes = text.getBytes("UTF-8");
+            String str = new String(bytes, "UTF-8");
+            addStrToCommand(str);
+        } catch (UnsupportedEncodingException e) {
+            // Handle the exception, e.g., log it or rethrow it as a runtime exception
+            e.printStackTrace();
+        }
     }
 
 
