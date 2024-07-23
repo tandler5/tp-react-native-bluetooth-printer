@@ -232,7 +232,7 @@ public class TscCommand {
         byte[] bs = null;
         if (!str.equals("")) {
             try {
-                bs = str.getBytes("GB2312");
+                bs = str.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
