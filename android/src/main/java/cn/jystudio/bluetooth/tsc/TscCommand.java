@@ -232,7 +232,10 @@ public class TscCommand {
         byte[] bs = null;
         if (!str.equals("")) {
             try {
-                bs = str.getBytes("CP852");
+                byte[] temp = str.getBytes("UTF-8");
+                String temStr = new String(temp, "UTF-8");
+                t = new String(temStr.getBytes("GB2312"), "GB2312");//打印的文字
+                bs = t.getBytes();
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
