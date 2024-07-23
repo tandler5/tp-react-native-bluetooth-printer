@@ -522,7 +522,8 @@ public class TscCommand {
     }
 
      public void addCustomText(String text) {
-        String str = new String(text, "UTF-8");
+        byte[] bytes = text.getBytes("UTF-8");
+        String str = new String(bytes, "UTF-8");
         addStrToCommand(str);
     }
 
